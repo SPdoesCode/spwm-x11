@@ -1,0 +1,152 @@
+# To allow plugins to use the stdlib set let_plugins_use_stdlib_possibly_unsafe to true,
+# but as the name implys it could cause unsafe behavior. So default is false
+# Also note this MUST be the first config line.
+
+# To use a plugin do
+# plugin "/path/to/plugin.lua" "name"
+
+# You can config the plugin with a block based on its name like
+# in "name" {
+#   set example_option true
+#   set foo "bar"
+#   set buzz 10
+# }
+# No nested blocks
+
+# To include another file use
+# include "/path/to/file"
+
+#
+#   LOOKS and UI
+#
+
+# Set the default fg and background
+
+set fg "FFFFFF"
+
+set bg "000000"
+
+# Set window colors
+
+set window_active_fg "FFFFFF"
+
+set window_normal_bg "000000"
+
+# Set the default font, the color by default is the value of fg
+
+set font "monospace"
+
+set font_size 10
+
+#set font_color "FFFFFF"
+
+# Set up the tabs
+
+set tabs "1", "2", "3", "4", "5"
+
+set tabs_num 5
+
+# Set the layout default is master stack and the only built in one
+
+set layout "master_stack"
+
+# Enable and use the default bar
+
+set use_default_bar true
+
+in bar {
+    # Set the fonts
+
+    set font "monospace"
+
+    #set font_size 10
+
+    set active_tab_font_color "FFFFFF"
+
+    set norm_tab_font_color "000000"
+
+    # Set the center, left, and right content
+
+    set center "$(current_window)"
+
+    set right "$(cmd: "date")(1)$"
+
+    set left "$(tabs)"
+
+    # Set colors for the active tab
+
+    set active_tab_color "FFFFFF"
+
+    set norm_tab_color "000000"
+
+}
+
+#
+#   KEYBINDING and CONTROLS
+#
+
+# Mod key
+
+set MODKEY super
+
+# Utility binds
+
+bind MODKEY + shift + e to close spwm
+
+bind MODKEY + shift + r to reload
+
+bind MODKEY + q to close current_window
+
+bind MODKEY + d to launch "dmenu-run -fn 'monospace-10'"
+
+bind MODKEY + enter to launch "st"
+
+# Window controls (Master stack layout)
+
+bind MODKEY + shift + up to move current_window to up_stack
+
+bind MODKEY + shift + down to move current_window to down_stack
+
+bind MODKEY + shift + right to move current_window to stack
+
+bind MODKEY + shift + left to move current_window to master
+
+bind MODKEY + up to move focus to window_above
+
+bind MODKEY + down to move focus to window_down
+
+bind MODKEY + right to move focus to window_right
+
+bind MODKEY + left to move focus to window left
+
+# Window resizing
+
+bind MODKEY + ctrl + up to shift current_window y +10
+
+bind MODKEY + ctrl + down to shift current_window y -10
+
+bind MODKEY + ctrl + right to shift current_window x +10
+
+bind MODKEY + ctrl + left to shift current_window x -10
+
+# Tab controls
+
+bind MODKEY + 1 move self to tab 1
+
+bind MODKEY + 2 move self to tab 2
+
+bind MODKEY + 3 move self to tab 3
+
+bind MODKEY + 4 move self to tab 4
+
+bind MODKEY + 5 move self to tab 5
+
+bind MODKEY + shift + 1 move current_window to tab 1
+
+bind MODKEY + shift + 2 move current_window to tab 2
+
+bind MODKEY + shift + 3 move current_window to tab 3
+
+bind MODKEY + shift + 4 move current_window to tab 4
+
+bind MODKEY + shift + 5 move current_window to tab 5
